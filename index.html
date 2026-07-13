@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Event Registration</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="page active">
+      <div class="login-wrapper">
+        <div class="login-card">
+          <h1 class="login-title">🎓 College Events</h1>
+          <p class="login-subtitle">Register for Amazing Events</p>
+          
+          <form id="loginForm">
+            <label>Email</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email" required />
+            
+            <label>Name</label>
+            <input type="text" id="loginName" placeholder="Enter your full name" required />
+            
+            <label>Student ID</label>
+            <input type="text" id="studentId" placeholder="Enter your student ID" required />
+            
+            <button type="submit" class="login-btn">Continue to Events</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENTS PAGE -->
+    <div id="eventsPage" class="page">
+      <header class="page-header">
+        <h1>🎉 Available College Events</h1>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </header>
+
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-icon">🎸</div>
+          <h3>Music Festival</h3>
+          <p class="event-date">📅 August 15, 2026</p>
+          <p class="event-location">📍 Main Auditorium</p>
+          <p class="event-desc">Amazing live music performances by student bands</p>
+          <button class="register-btn" onclick="registerForEvent('Music Festival')">Register Now</button>
+        </div>
+        <div class="event-card">
+          <div class="event-icon">💻</div>
+          <h3>Hackathon 2026</h3>
+          <p class="event-date">📅 August 25, 2026</p>
+          <p class="event-location">📍 Tech Lab</p>
+          <p class="event-desc">24-hour coding competition with amazing prizes</p>
+          <button class="register-btn" onclick="registerForEvent('Hackathon 2026')">Register Now</button>
+        </div>
+
+        <div class="event-card">
+          <div class="event-icon">🏀</div>
+          <h3>Sports Day</h3>
+          <p class="event-date">📅 August 20, 2026</p>
+          <p class="event-location">📍 Sports Ground</p>
+          <p class="event-desc">Inter-college sports competition with multiple events</p>
+          <button class="register-btn" onclick="registerForEvent('Sports Day')">Register Now</button>
+        </div>
+
+        <div class="event-card">
+          <div class="event-icon">🎭</div>
+          <h3>Cultural Night</h3>
+          <p class="event-date">📅 September 2, 2026</p>
+          <p class="event-location">📍 Main Stage</p>
+          <p class="event-desc">Celebrate diverse cultures with dance, drama and food</p>
+          <button class="register-btn" onclick="registerForEvent('Cultural Night')">Register Now</button>
+        </div>
+
+        <div class="event-card">
+          <div class="event-icon">🎓</div>
+          <h3>Tech Talk Series</h3>
+          <p class="event-date">📅 September 5, 2026</p>
+          <p class="event-location">📍 Auditorium Hall</p>
+          <p class="event-desc">Industry experts sharing insights on latest technologies</p>
+          <button class="register-btn" onclick="registerForEvent('Tech Talk Series')">Register Now</button>
+        </div>
+
+        <div class="event-card">
+          <div class="event-icon">🍔</div>
+          <h3>Food Festival</h3>
+          <p class="event-date">📅 September 10, 2026</p>
+          <p class="event-location">📍 Food Court Area</p>
+          <p class="event-desc">Taste cuisines from around the world</p>
+          <button class="register-btn" onclick="registerForEvent('Food Festival')">Register Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGISTRATION PAGE -->
+    <div id="registrationPage" class="page">
+      <header class="page-header">
+        <h1>📝 Event Registration</h1>
+        <button class="back-btn" onclick="goToEvents()">← Back to Events</button>
+      </header>
+
+      <form id="registrationForm" class="registration-form">
+        <input type="hidden" id="id" />
+        <input type="hidden" id="eventName" />
+
+        <h2 id="selectedEventTitle" style="color: #667eea; text-align: center; margin-bottom: 25px;"></h2>
+
+        <div class="form-grid">
+          <div>
+            <label>Participant Name</label>
+            <input type="text" id="participant_name" required />
+          </div>
+
+          <div>
+            <label>Event Name</label>
+            <input type="text" id="display_event_name" readonly />
+          </div>
+
+          <div>
+            <label>Event Date</label>
+            <input type="date" id="event_date" required />
+          </div>
+
+          <div>
+            <label>Contact Number</label>
+            <input type="text" id="contact_number" required />
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <button type="submit" class="submit-btn">Save Registration</button>
+          <button type="button" id="resetBtn" class="reset-btn">Reset</button>
+        </div>
+      </form>
+
+      <h2>📋 Your Registrations</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Participant Name</th>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th>Contact Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="registrationTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
